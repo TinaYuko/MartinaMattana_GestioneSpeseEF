@@ -1,0 +1,3 @@
+﻿using TestSpesa;
+
+Menu.Start();
