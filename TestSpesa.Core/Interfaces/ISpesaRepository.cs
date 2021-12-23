@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestSpesa.Core.Entities;
+using GestioneSpesaEF.Core.Entities;
 
-namespace TestSpesa.Core.Interfaces
+namespace GestioneSpesaEF.Core.Interfaces
 {
-    public interface ISpesaRepository : IRepository<Spesa>
+    public interface ISpesaRepository : IRepository<Spese>
     {
-        List<Spesa> GetAllApprovate();
-        List<Spesa> GetSpesaUtente(int id);
+        List<Spese> GetAllApprovate();
+        List<Spese> GetSpesaUtente(string utente);
         bool GetSpeseApprovate(int id);
-        List<Spesa> GetSpeseDaApprovare();
-        decimal GetTotByCategory(int id);
-        List<Spesa> GetSpeseOrdinate();
+        List<Spese> GetSpeseDaApprovare();
+        List<Spese> GetSpeseOrdinate();
+        void GetTotByCategory();
     }
 }

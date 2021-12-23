@@ -33,8 +33,8 @@ namespace TestSpesa.Mock.Repositories
         {
             int LastMont = DateTime.Today.Month == 1 ? 12 : DateTime.Today.Month - 1;
             int LastYear = LastMont == 12 ? DateTime.Today.Year - 1 : DateTime.Today.Year;
-           
-            var speseApprovate = MemoryStorage.spese.Where(s => s.Approvato == true && s.Data.Month== LastMont && s.Data.Year==LastYear).ToList();
+
+            var speseApprovate = MemoryStorage.spese.Where(s => s.Approvato == true && s.Data.Month == LastMont && s.Data.Year == LastYear).ToList();
             return speseApprovate;
         }
 
@@ -45,7 +45,7 @@ namespace TestSpesa.Mock.Repositories
 
         public List<Spesa> GetSpesaUtente(int id)
         {
-            var speseUtente= MemoryStorage.spese.Where(s => s.UtenteId == id).ToList();
+            var speseUtente = MemoryStorage.spese.Where(s => s.UtenteId == id).ToList();
             return speseUtente;
         }
 
@@ -69,7 +69,7 @@ namespace TestSpesa.Mock.Repositories
         {
             var speseOrdinate = MemoryStorage.spese.OrderByDescending(s => s.Data).ToList();
             return speseOrdinate;
-            
+
         }
 
         public decimal GetTotByCategory(int id)
@@ -77,17 +77,34 @@ namespace TestSpesa.Mock.Repositories
             int LastMont = DateTime.Today.Month == 1 ? 12 : DateTime.Today.Month - 1;
             int LastYear = LastMont == 12 ? DateTime.Today.Year - 1 : DateTime.Today.Year;
             decimal tot = 0;
-            var speseByCategory= MemoryStorage.spese.Where(s => s.CategoriaId==id && s.Data.Month == LastMont && s.Data.Year == LastYear).ToList();
+            var speseByCategory = MemoryStorage.spese.Where(s => s.CategoriaId == id && s.Data.Month == LastMont && s.Data.Year == LastYear).ToList();
             foreach (var item in speseByCategory)
             {
                 tot += item.Importo;
             }
             return tot;
+
         }
 
         public bool Update(Spesa entity)
         {
             throw new NotImplementedException();
         }
+
+        //public List<Spesa> GetFullTotByCategory()
+        //{
+        //    var result = MemoryStorage.categorie.GroupJoin(
+        //        MemoryStorage.spese,
+        //        c => c.Id,
+        //        s => s.CategoriaId,
+        //        (c, spesePerCategoria) => new
+        //        { 
+        //            NomeCategoria= c.Nome,
+        //            TotaleSpese= spesePerCategoria.Sum(s=> s.Importo)
+        //        }
+        //        ).ToList();
+
+        //    return result;
+        //}
     }
 }

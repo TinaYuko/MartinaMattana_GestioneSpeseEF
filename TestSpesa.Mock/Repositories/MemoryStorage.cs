@@ -14,13 +14,13 @@ namespace TestSpesa.Mock.Repositories
             new Utente{ Id = 2, Nome="Martina", Cognome= "Mattana"}
         };
 
-        public static List<Categoria> categorie = new List<Categoria>()
+        public static List<Categorie> categorie = new List<Categorie>()
         { 
-          new Categoria{ Id=1, Nome="Mediche"},
-          new Categoria{ Id=2, Nome="Utenze"},
-          new Categoria{ Id=3, Nome="Auto"},
-          new Categoria{ Id=4, Nome="Casa"},
-          new Categoria{ Id=5, Nome="Personali"}
+          new Categorie{ Id=1, Nome="Mediche"},
+          new Categorie{ Id=2, Nome="Utenze"},
+          new Categorie{ Id=3, Nome="Auto"},
+          new Categorie{ Id=4, Nome="Casa"},
+          new Categorie{ Id=5, Nome="Personali"}
         };
 
         public static List<Spesa> spese = new List<Spesa>()

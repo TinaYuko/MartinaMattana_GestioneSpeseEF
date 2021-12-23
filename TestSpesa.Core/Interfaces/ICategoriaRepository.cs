@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestSpesa.Core.Entities;
+using GestioneSpesaEF.Core.Entities;
 
-namespace TestSpesa.Core.Interfaces
+namespace GestioneSpesaEF.Core.Interfaces
 {
-    public interface ICategoriaRepository: IRepository<Categoria>
+    public interface ICategoriaRepository: IRepository<Categorie>
     {
     }
 }

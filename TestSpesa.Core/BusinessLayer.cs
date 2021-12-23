@@ -1,69 +1,61 @@
-﻿using TestSpesa.Core.Entities;
-using TestSpesa.Core.Interfaces;
+﻿using GestioneSpesaEF.Core.Entities;
+using GestioneSpesaEF.Core.Interfaces;
 
-namespace TestSpesa.Core
+namespace GestioneSpesaEF.Core
 {
     public class BusinessLayer: IBusinessLayer
     {
         private readonly ISpesaRepository spesaRepo;
         private readonly ICategoriaRepository categoriaRepo;
-        private readonly IUtenteRepository utenteRepo;
-        public BusinessLayer(ISpesaRepository spesaRepository, ICategoriaRepository categoriaRepository, IUtenteRepository utenteRepository)
+        public BusinessLayer(ISpesaRepository spesaRepository, ICategoriaRepository categoriaRepository)
         {
              spesaRepo = spesaRepository;
             categoriaRepo = categoriaRepository;    
-            utenteRepo = utenteRepository;
         }
 
-        #region Spesa
-        public bool AddSpesa(Spesa spesa)
+
+        public bool AddSpesa(Spese spesa)
         {
             return spesaRepo.Add(spesa);
         }
-        public List<Spesa> GetSpeseApprovate()
+        public List<Spese> GetSpeseApprovate()
         {
             return spesaRepo.GetAllApprovate();
         }
-        public List<Spesa> GetAllSpese()
+        public List<Spese> GetAllSpese()
         {
             return spesaRepo.GetAll();
         }
-        public bool GetSpeseApprovate(int id)
+        public bool ApprovaSpesa(int id)
         {
             return spesaRepo.GetSpeseApprovate(id);
         }
-        public List<Spesa> GetSpeseDaApprovare()
+        public List<Spese> GetSpeseDaApprovare()
         {
             return spesaRepo.GetSpeseDaApprovare();
         }
-        public decimal GetTotaleByCategory(int id)
-        {
-            return spesaRepo.GetTotByCategory(id);
-        }
-        public List<Spesa> GetAllSpeseOrdinate()
-        {
-            return spesaRepo.GetSpeseOrdinate();
-        }
-        public List<Spesa> GetSpeseUtente(int id)
-        {
-            return spesaRepo.GetSpesaUtente(id);
-        }
-        #endregion Spesa
-
-        #region Utente
-        public List<Utente> GetAllUtenti()
-        {
-            return utenteRepo.GetAll();
-        }
-        #endregion Utente
-
-        #region Categoria
-        public List<Categoria> GetAllCategorie()
+        public List<Categorie> GetAllCategorie()
         {
             return categoriaRepo.GetAll();
         }
-        #endregion Categoria
 
+        public bool DeleteSpesa(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        public List<Spese> GetSpeseUtente(string utente)
+        {
+            return spesaRepo.GetSpesaUtente(utente);
+        }
+
+        public void GetTotaleByCategory()
+        {
+            spesaRepo.GetTotByCategory();
+        }
+        
 
 
 

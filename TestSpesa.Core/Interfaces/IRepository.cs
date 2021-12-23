@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestSpesa.Core.Interfaces
+namespace GestioneSpesaEF.Core.Interfaces
 {
     public interface IRepository<T>
     {

@@ -10,27 +10,27 @@ namespace TestSpesa.Mock.Repositories
 {
     public class CategoriaRepoMock : ICategoriaRepository
     {
-        public bool Add(Categoria entity)
+        public bool Add(Categorie entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(Categoria entity)
+        public bool Delete(Categorie entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<Categoria> GetAll()
+        public List<Categorie> GetAll()
         {
             return MemoryStorage.categorie;
         }
 
-        public Categoria GetById(int id)
+        public Categorie GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Categoria entity)
+        public bool Update(Categorie entity)
         {
             throw new NotImplementedException();
         }

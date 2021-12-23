@@ -1,3 +1,3 @@
-﻿using TestSpesa;
+﻿using GestioneSpesaEF;
 
 Menu.Start();

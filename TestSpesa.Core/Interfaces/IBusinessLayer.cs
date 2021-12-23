@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestSpesa.Core.Entities;
+using GestioneSpesaEF.Core.Entities;
 
-namespace TestSpesa.Core.Interfaces
+namespace GestioneSpesaEF.Core.Interfaces
 {
     public interface IBusinessLayer
     {
-        List<Spesa> GetSpeseApprovate();
-        List<Utente> GetAllUtenti();
-        List<Spesa> GetSpeseUtente(int id);
-        List<Categoria> GetAllCategorie();
-        bool AddSpesa(Spesa spesa);
-        List<Spesa> GetAllSpese();
-        bool GetSpeseApprovate(int id);
-        List<Spesa> GetSpeseDaApprovare();
-        decimal GetTotaleByCategory(int id);
-        List<Spesa> GetAllSpeseOrdinate();
+        List<Spese> GetSpeseApprovate();
+        List<Spese> GetSpeseUtente(string utente);
+        List<Categorie> GetAllCategorie();
+        bool AddSpesa(Spese spesa);
+        List<Spese> GetAllSpese();
+        List<Spese> GetSpeseDaApprovare();
+        bool DeleteSpesa(int id);
+        bool ApprovaSpesa(int id);
+        void GetTotaleByCategory();
     }
 }
