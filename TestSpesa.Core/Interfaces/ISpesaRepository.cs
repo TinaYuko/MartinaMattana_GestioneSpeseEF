@@ -13,7 +13,6 @@ namespace GestioneSpesaEF.Core.Interfaces
         List<Spese> GetSpesaUtente(string utente);
         bool GetSpeseApprovate(int id);
         List<Spese> GetSpeseDaApprovare();
-        List<Spese> GetSpeseOrdinate();
         void GetTotByCategory();
     }
 }

@@ -33,18 +33,19 @@ namespace GestioneSpeseEF.RepositoryEF.RepositoryEF
 
         public List<Spese> GetAllApprovate()
         {
-            throw new NotImplementedException();
+            return ctx.Sepse.Include(s => s.Categorie).Where(s=>s.Approvato==true).ToList();
         }
 
         public Spese GetById(int id)
         {
-            throw new NotImplementedException();
+            return ctx.Sepse.Include(c => c.Categorie).FirstOrDefault(c => c.Id== id);
         }
 
 
         public List<Spese> GetSpesaUtente(string utente)
         {
-            throw new NotImplementedException();
+            return ctx.Sepse.Include(s => s.Categorie).Where(s => s.Utente == utente).ToList();
+
         }
 
         public bool GetSpeseApprovate(int id)
@@ -54,12 +55,8 @@ namespace GestioneSpeseEF.RepositoryEF.RepositoryEF
 
         public List<Spese> GetSpeseDaApprovare()
         {
-            throw new NotImplementedException();
-        }
+            return ctx.Sepse.Include(s => s.Categorie).Where(s => s.Approvato == false).ToList();
 
-        public List<Spese> GetSpeseOrdinate()
-        {
-            throw new NotImplementedException();
         }
 
         public decimal GetTotByCategory()
@@ -69,7 +66,9 @@ namespace GestioneSpeseEF.RepositoryEF.RepositoryEF
 
         public bool Update(Spese entity)
         {
-            throw new NotImplementedException();
+           ctx.Sepse.Update(entity);
+            ctx.SaveChanges();
+            return true;
         }
 
         void ISpesaRepository.GetTotByCategory()

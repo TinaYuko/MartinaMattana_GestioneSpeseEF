@@ -41,7 +41,8 @@ namespace GestioneSpesaEF.Core
 
         public bool DeleteSpesa(int id)
         {
-            throw new NotImplementedException();
+            spesaRepo.Delete(id);
+            return true;
         }
 
         
@@ -55,10 +56,6 @@ namespace GestioneSpesaEF.Core
         {
             spesaRepo.GetTotByCategory();
         }
-        
-
-
-
 
     }
 }
